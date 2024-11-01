@@ -134,25 +134,38 @@
     margin-block: 1rem;
     > h1,
     > h2 {
-      font-size: 1.5em;
-      padding-bottom: 0.3em;
-      border-bottom: 1px solid $global-border-color;
+      // font-size: 1.5em;
+      // padding-bottom: 0.3em;
+      // border-bottom: 1px solid $global-border-color;
+      & code {
+        font-size: 1.25rem;
+      }
     }
 
     > h3 {
-      font-size: 1.25em;
+      // font-size: 1.25em;
+      font-size: 1.375rem;
+      & code {
+        font-size: 1.125rem;
+      }
     }
 
     > h4 {
-      font-size: 1em;
+      // font-size: 1em;
+      font-size: 1.375rem;
+      & code {
+        font-size: 1.125rem;
+      }
     }
 
     > h5 {
-      font-size: 0.875em;
+      // font-size: 0.875em;
+      font-size: 1.125rem;
     }
 
     > h6 {
-      font-size: 0.85em;
+      // font-size: 0.85em;
+      font-size: 1rem;
     }
 
     > .heading-element {
@@ -173,12 +186,12 @@
 
       &:hover,
       &:target {
-        > .heading-mark {
+        > .heading-mark-link {
           opacity: 1;
         }
       }
 
-      > .heading-mark {
+      > .heading-mark-link {
         display: inline-flex;
         align-items: center;
         opacity: 0;
@@ -190,6 +203,26 @@
           fill: currentColor;
         }
       }
+    }
+
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+      > .heading-mark::before {
+        content: '|';
+        margin-right: 0.3125rem;
+        color: $single-link-color;
+
+        [data-theme='dark'] & {
+          color: $single-link-color-dark;
+        }
+      }
+    }
+
+    > h2 > .heading-mark::before {
+      content: '#';
     }
 
     p {
